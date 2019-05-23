@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AvatarGroup_Example' do
+  pod 'AvatarGroup', :path => '../'
+
+  target 'AvatarGroup_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,23 @@
+PODS:
+  - AvatarGroup (0.1.0)
+  - SnapKit (5.0.0)
+
+DEPENDENCIES:
+  - AvatarGroup (from `../`)
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  AvatarGroup:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AvatarGroup: 61d94c6c5847db3b874949e0d062141ced884687
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+
+PODFILE CHECKSUM: 9a921d98aab402082c1bf15b8a8839637ade2092
+
+COCOAPODS: 1.6.1

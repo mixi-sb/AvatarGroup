@@ -2,22 +2,27 @@
 //  ViewController.swift
 //  AvatarGroup
 //
-//  Created by lm2343635 on 05/23/2019.
-//  Copyright (c) 2019 lm2343635. All rights reserved.
+//  Created by Meng Li on 05/23/2019.
+//  Copyright (c) 2019 XFLAG. All rights reserved.
 //
 
 import UIKit
+import AvatarGroup
+import SnapKit
 
 class ViewController: UIViewController {
+    
+    private lazy var avatarGroupView = AvatarGroupView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        avatarGroupView.backgroundColor = .lightGray
+        view.addSubview(avatarGroupView)
+        avatarGroupView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(CGSize(width: 300, height: 50))
+        }
     }
 
 }

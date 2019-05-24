@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func remove(_ sender: Any) {
-        
+        avatarGroupView.remove(at: Int.random(in: 0...(avatarGroupView.count - 1)))
     }
     
 }

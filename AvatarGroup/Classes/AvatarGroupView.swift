@@ -64,6 +64,10 @@ open class AvatarGroupView: UIView {
         return CGAffineTransform(scaleX: reverse ? -1 : 1, y: 1)
     }
     
+    public var count: Int {
+        return containerViews.count
+    }
+    
     public func add(image: UIImage?) {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -92,9 +96,14 @@ open class AvatarGroupView: UIView {
         
         stackView.addArrangedSubview(containerView)
     }
-    
-    public var count: Int {
-        return containerViews.count
+
+    public func remove(at index: Int) {
+        guard 0...index ~= index else {
+            return
+        }
+        stackView.removeArrangedSubview(containerViews[index])
+        containerViews.remove(at: index)
+        imageViews.remove(at: index)
     }
     
 }

@@ -1,10 +1,10 @@
 PODS:
-  - AvatarGroup (0.1.0)
+  - AvatarGroup (0.1):
+    - SnapKit (~> 5)
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - AvatarGroup (from `../`)
-  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AvatarGroup: 61d94c6c5847db3b874949e0d062141ced884687
+  AvatarGroup: 16fafcded6a7954cfb37d03fbe82e6834285ad06
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 9a921d98aab402082c1bf15b8a8839637ade2092
+PODFILE CHECKSUM: 8f5b10ea35522dfa53e0a33110a148520debf7cc
 
 COCOAPODS: 1.6.1

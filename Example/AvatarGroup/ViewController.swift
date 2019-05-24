@@ -28,5 +28,9 @@ class ViewController: UIViewController {
         avatarGroupView.remove(at: Int.random(in: 0...(avatarGroupView.count - 1)))
     }
     
+    @IBAction func reverse(_ sender: Any) {
+        avatarGroupView.reverse = !avatarGroupView.reverse
+    }
+    
 }
 

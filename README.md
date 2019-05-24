@@ -22,6 +22,7 @@ Add and remove the avatar images with the following methods:
 
 ```Swift
 func add(image: UIIamge?)
+func add(images: [UIIamge?])
 func remove(at index: Int)
 ```
 

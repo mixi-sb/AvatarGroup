@@ -16,8 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        avatarGroupView.backgroundColor = .lightGray
+
         view.addSubview(avatarGroupView)
         avatarGroupView.snp.makeConstraints {
             $0.center.equalToSuperview()

@@ -15,7 +15,6 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		63879DCCF5970E41EDA0894E /* Pods_AvatarGroup_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B35068E26B6115D77871B1 /* Pods_AvatarGroup_Tests.framework */; };
-		7753CAA222967B0C00EB110E /* avatar1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CA9A22967B0C00EB110E /* avatar1.jpg */; };
 		7753CAA322967B0C00EB110E /* avatar2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CA9B22967B0C00EB110E /* avatar2.jpg */; };
 		7753CAA422967B0C00EB110E /* avatar4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CA9C22967B0C00EB110E /* avatar4.jpg */; };
 		7753CAA522967B0C00EB110E /* avatar3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CA9D22967B0C00EB110E /* avatar3.jpg */; };
@@ -23,6 +22,7 @@
 		7753CAA722967B0C00EB110E /* avatar5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CA9F22967B0C00EB110E /* avatar5.jpg */; };
 		7753CAA822967B0C00EB110E /* avatar0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CAA022967B0C00EB110E /* avatar0.jpg */; };
 		7753CAA922967B0C00EB110E /* avatar7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CAA122967B0C00EB110E /* avatar7.jpg */; };
+		7753CAAD229797A300EB110E /* avatar1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7753CAAC229797A300EB110E /* avatar1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		64F51FD59D292E777EDE8517 /* Pods-AvatarGroup_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvatarGroup_Tests.release.xcconfig"; path = "Target Support Files/Pods-AvatarGroup_Tests/Pods-AvatarGroup_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7753CA9A22967B0C00EB110E /* avatar1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar1.jpg; sourceTree = "<group>"; };
 		7753CA9B22967B0C00EB110E /* avatar2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar2.jpg; sourceTree = "<group>"; };
 		7753CA9C22967B0C00EB110E /* avatar4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar4.jpg; sourceTree = "<group>"; };
 		7753CA9D22967B0C00EB110E /* avatar3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar3.jpg; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		7753CA9F22967B0C00EB110E /* avatar5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar5.jpg; sourceTree = "<group>"; };
 		7753CAA022967B0C00EB110E /* avatar0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar0.jpg; sourceTree = "<group>"; };
 		7753CAA122967B0C00EB110E /* avatar7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar7.jpg; sourceTree = "<group>"; };
+		7753CAAC229797A300EB110E /* avatar1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar1.jpg; sourceTree = "<group>"; };
 		7D1E39A5BB9D8F15F8406B01 /* Pods-AvatarGroup_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvatarGroup_Example.debug.xcconfig"; path = "Target Support Files/Pods-AvatarGroup_Example/Pods-AvatarGroup_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7D588F5D8C10FBCF7E7D885C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		953BBD32061658589A542FED /* Pods-AvatarGroup_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvatarGroup_Example.release.xcconfig"; path = "Target Support Files/Pods-AvatarGroup_Example/Pods-AvatarGroup_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				7753CAA022967B0C00EB110E /* avatar0.jpg */,
-				7753CA9A22967B0C00EB110E /* avatar1.jpg */,
+				7753CAAC229797A300EB110E /* avatar1.jpg */,
 				7753CA9B22967B0C00EB110E /* avatar2.jpg */,
 				7753CA9D22967B0C00EB110E /* avatar3.jpg */,
 				7753CA9C22967B0C00EB110E /* avatar4.jpg */,
@@ -283,12 +283,12 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				7753CAA722967B0C00EB110E /* avatar5.jpg in Resources */,
 				7753CAA522967B0C00EB110E /* avatar3.jpg in Resources */,
-				7753CAA222967B0C00EB110E /* avatar1.jpg in Resources */,
 				7753CAA822967B0C00EB110E /* avatar0.jpg in Resources */,
 				7753CAA322967B0C00EB110E /* avatar2.jpg in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				7753CAA922967B0C00EB110E /* avatar7.jpg in Resources */,
 				7753CAA422967B0C00EB110E /* avatar4.jpg in Resources */,
+				7753CAAD229797A300EB110E /* avatar1.jpg in Resources */,
 				7753CAA622967B0C00EB110E /* avatar6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

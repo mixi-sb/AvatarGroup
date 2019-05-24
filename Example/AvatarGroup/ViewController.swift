@@ -32,8 +32,13 @@ class ViewController: UIViewController {
         avatarGroupView.reverse = !avatarGroupView.reverse
     }
     
+    @IBAction func changeAlignment(_ sender: UISegmentedControl) {
+        avatarGroupView.alignment = AvatarGroupView.Alignment.allCases[sender.selectedSegmentIndex]
+    }
+    
     private func image(with index: Int) -> UIImage? {
         return UIImage(named: "avatar\(index).jpg")
     }
+    
 }
 

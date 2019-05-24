@@ -28,10 +28,10 @@ import SnapKit
 
 open class AvatarGroupView: UIView {
     
-    public enum Alignment {
+    public enum Alignment: CaseIterable {
         case left
-        case right
         case center
+        case right
     }
     
     private lazy var stackView: UIStackView = {
@@ -65,10 +65,17 @@ open class AvatarGroupView: UIView {
     private func createConstraints() {
         stackView.snp.remakeConstraints {
             $0.top.bottom.equalToSuperview()
-            if reverse {
+            switch (alignment, reverse) {
+            case (.left, true):
                 $0.trailing.equalToSuperview()
-            } else {
+            case (.left, false):
                 $0.leading.equalToSuperview()
+            case (.right, true):
+                $0.leading.equalToSuperview()
+            case (.right, false):
+                $0.trailing.equalToSuperview()
+            case (.center, _):
+                $0.center.equalToSuperview()
             }
         }
     }
@@ -89,6 +96,12 @@ open class AvatarGroupView: UIView {
         didSet {
             transform = cgAffineTransform
             containerViews.forEach { $0.transform = cgAffineTransform }
+            createConstraints()
+        }
+    }
+    
+    public var alignment: Alignment = .left {
+        didSet {
             createConstraints()
         }
     }

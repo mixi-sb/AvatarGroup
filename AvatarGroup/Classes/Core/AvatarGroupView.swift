@@ -110,11 +110,10 @@ open class AvatarGroupView: UIView {
         return containerViews.count
     }
     
-    public func add(image: UIImage?) {
+    func addImageView() -> UIImageView {
         let imageView: UIImageView = {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill
-            imageView.image = image
             imageView.layer.cornerRadius = 23
             imageView.layer.masksToBounds = true
             return imageView
@@ -129,7 +128,7 @@ open class AvatarGroupView: UIView {
             view.transform = cgAffineTransform
             return view
         }()
-
+        
         imageViews.append(imageView)
         containerViews.append(containerView)
         stackView.addArrangedSubview(containerView)
@@ -143,7 +142,12 @@ open class AvatarGroupView: UIView {
             $0.height.equalToSuperview()
             $0.width.equalTo(containerView.snp.height)
         }
-
+        return imageView
+    }
+    
+    public func add(image: UIImage?) {
+        let imageView = addImageView()
+        imageView.image = image
     }
 
     public func add(images: [UIImage?]) {

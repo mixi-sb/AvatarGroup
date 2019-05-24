@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'AvatarGroup'
   s.version          = '0.1'
-  s.summary          = 'A short description of AvatarGroup.'
+  s.summary          = 'An avatars\' group view for iOS'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,19 +18,28 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+AvatarGroup is a avatars' group view library which can arrange the circle avatars in a stack view.
                        DESC
 
   s.homepage         = 'https://github.com/xflagstudio/AvatarGroup'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://raw.githubusercontent.com/xflagstudio/AvatarGroup/master/screenshots/demo.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'lm2343635' => 'lm2343635@126.com' }
   s.source           = { :git => 'https://github.com/xflagstudio/AvatarGroup.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'AvatarGroup/Classes/**/*'
+  s.default_subspec = 'Core'
   s.dependency 'SnapKit', '~> 5'
+  
+  s.subspec 'Core' do |core|
+    core.source_files = 'AvatarGroup/Classes/Core/**/*'
+  end
+  
+  s.subspec 'Kingfisher' do |kingfisher|
+    kingfisher.dependency 'AvatarGroup/Core'
+    kingfisher.dependency 'Kingfisher', '~> 5'
+    kingfisher.source_files = 'AvatarGroup/Classes/Kingfisher/**/*'
+  end
   
 end

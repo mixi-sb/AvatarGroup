@@ -2,7 +2,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'AvatarGroup_Example' do
-  pod 'AvatarGroup', :path => '../'
+  pod 'AvatarGroup/Kingfisher', :path => '../'
 
   target 'AvatarGroup_Tests' do
     inherit! :search_paths  

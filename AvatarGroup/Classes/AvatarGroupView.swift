@@ -98,34 +98,45 @@ open class AvatarGroupView: UIView {
     }
     
     public func add(image: UIImage?) {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = image
-        imageView.layer.cornerRadius = 23
-        imageView.layer.masksToBounds = true
+        let imageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFill
+            imageView.image = image
+            imageView.layer.cornerRadius = 23
+            imageView.layer.masksToBounds = true
+            return imageView
+        }()
+        
+        let containerView: UIView = {
+            let view = UIView()
+            view.backgroundColor = .white
+            view.addSubview(imageView)
+            view.layer.cornerRadius = 25
+            view.layer.masksToBounds = true
+            view.transform = cgAffineTransform
+            return view
+        }()
+
         imageViews.append(imageView)
-        
-        let containerView = UIView()
-        containerView.backgroundColor = .white
-        containerView.addSubview(imageView)
-        containerView.layer.cornerRadius = 25
-        containerView.layer.masksToBounds = true
-        containerView.transform = cgAffineTransform
         containerViews.append(containerView)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 46).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
         stackView.addArrangedSubview(containerView)
+        
+        imageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalToSuperview().offset(-4)
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.height.equalToSuperview()
+            $0.width.equalTo(containerView.snp.height)
+        }
+
     }
 
+    public func add(images: [UIImage?]) {
+        images.forEach { add(image: $0) }
+    }
+    
     public func remove(at index: Int) {
         guard 0...index ~= index else {
             return

@@ -17,11 +17,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        avatarGroupView.add(images: (0...4).map { image(with: $0) })
     }
 
     @IBAction func add(_ sender: Any) {
-        avatarGroupView.add(image: UIImage(named: "avatar\(avatarGroupView.count % 8).jpg"))
+        avatarGroupView.add(image: image(with: avatarGroupView.count % 8))
     }
     
     @IBAction func remove(_ sender: Any) {
@@ -32,5 +32,8 @@ class ViewController: UIViewController {
         avatarGroupView.reverse = !avatarGroupView.reverse
     }
     
+    private func image(with index: Int) -> UIImage? {
+        return UIImage(named: "avatar\(index).jpg")
+    }
 }
 

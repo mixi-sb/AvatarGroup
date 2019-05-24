@@ -100,6 +100,21 @@ open class AvatarGroupView: UIView {
         }
     }
     
+    @IBInspectable
+    public var borderColor: UIColor = .white {
+        didSet {
+            containerViews.forEach { $0.backgroundColor = borderColor }
+        }
+    }
+    
+    @IBInspectable
+    public var borderWidth: CGFloat = 2 {
+        didSet {
+            let cornerRadius = (bounds.height - 2 * borderWidth) / 2
+            imageViews.forEach { $0.layer.cornerRadius = cornerRadius }
+        }
+    }
+    
     public var alignment: Alignment = .left {
         didSet {
             createConstraints()
@@ -114,16 +129,16 @@ open class AvatarGroupView: UIView {
         let imageView: UIImageView = {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 23
+            imageView.layer.cornerRadius = (bounds.height - 2 * borderWidth) / 2
             imageView.layer.masksToBounds = true
             return imageView
         }()
         
         let containerView: UIView = {
             let view = UIView()
-            view.backgroundColor = .white
+            view.backgroundColor = borderColor
             view.addSubview(imageView)
-            view.layer.cornerRadius = 25
+            view.layer.cornerRadius = bounds.height / 2
             view.layer.masksToBounds = true
             view.transform = cgAffineTransform
             return view
@@ -135,7 +150,7 @@ open class AvatarGroupView: UIView {
         
         imageView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.size.equalToSuperview().offset(-4)
+            $0.size.equalToSuperview().offset(-2 * borderWidth)
         }
         
         containerView.snp.makeConstraints {

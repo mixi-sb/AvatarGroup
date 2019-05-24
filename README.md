@@ -18,6 +18,14 @@ it, simply add the following line to your Podfile:
 pod 'AvatarGroup'
 ```
 
+The following properties are supported in `AvatarGroupView`:
+
+- spacing (`CGFloat`): the space between to avatars.
+- reverse (`Bool`): reverse the AvatarGroupView.
+- alignment (`AvatarGroup.Alignment`)
+- borderColor (`UIColor`)
+- borderWidth (`CGFloat`)
+
 Add and remove the avatar images with the following methods:
 
 ```Swift

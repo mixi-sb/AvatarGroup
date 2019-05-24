@@ -7,48 +7,29 @@ open class AvatarGroupView: UIView {
         stackView.axis = .horizontal
         stackView.distribution = UIStackView.Distribution.equalCentering
         stackView.alignment = .center
-        stackView.spacing = -10
+        
         return stackView
     }()
     
-    private lazy var containerViews: [UIView] = (0...7).map {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.addSubview(imageViews[$0])
-        view.layer.cornerRadius = 25
-        view.layer.masksToBounds = true
-        return view
-    }
+    private lazy var containerViews: [UIView] = []
     
-    private lazy var imageViews: [UIImageView] = (0...7).map {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "avatar\($0).jpg")
-        imageView.layer.cornerRadius = 23
-        imageView.layer.masksToBounds = true
-        return imageView
-    }
+    private lazy var imageViews: [UIImageView] = []
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        clipsToBounds = true
-        
-        containerViews.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.widthAnchor.constraint(equalToConstant: 50).isActive = true
-            $0.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            
-            stackView.addArrangedSubview($0)
-        }
-        
-        addSubview(stackView)
-        createConstraints()
-
+        setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
+        clipsToBounds = true
+        
+        addSubview(stackView)
+        createConstraints()
     }
     
     private func createConstraints() {
@@ -56,13 +37,64 @@ open class AvatarGroupView: UIView {
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        
-        imageViews.enumerated().forEach {
-            $1.translatesAutoresizingMaskIntoConstraints = false
-            $1.widthAnchor.constraint(equalToConstant: 46).isActive = true
-            $1.heightAnchor.constraint(equalToConstant: 46).isActive = true
-            $1.centerXAnchor.constraint(equalTo: containerViews[$0].centerXAnchor).isActive = true
-            $1.centerYAnchor.constraint(equalTo: containerViews[$0].centerYAnchor).isActive = true
+    }
+    
+    @IBInspectable
+    public var spacing: CGFloat = 0 {
+        didSet {
+            stackView.spacing = spacing
         }
     }
+    
+    @IBInspectable
+    public var reverse: Bool = false {
+        didSet {
+            transform = cgAffineTransform
+            containerViews.forEach { $0.transform = cgAffineTransform }
+        }
+    }
+    
+    public var images: [UIImage?] = [] {
+        didSet {
+            
+        }
+    }
+    
+    private var cgAffineTransform: CGAffineTransform {
+        return CGAffineTransform(scaleX: reverse ? -1 : 1, y: 1)
+    }
+    
+    public func add(image: UIImage?) {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = image
+        imageView.layer.cornerRadius = 23
+        imageView.layer.masksToBounds = true
+        imageViews.append(imageView)
+        
+        let containerView = UIView()
+        containerView.backgroundColor = .white
+        containerView.addSubview(imageView)
+        containerView.layer.cornerRadius = 25
+        containerView.layer.masksToBounds = true
+        containerView.transform = cgAffineTransform
+        containerViews.append(containerView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 46).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        stackView.addArrangedSubview(containerView)
+    }
+    
+    public var count: Int {
+        return containerViews.count
+    }
+    
 }

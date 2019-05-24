@@ -12,17 +12,21 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    private lazy var avatarGroupView = AvatarGroupView()
-
+    @IBOutlet weak var avatarGroupView: AvatarGroupView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(avatarGroupView)
-        avatarGroupView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.size.equalTo(CGSize(width: 300, height: 50))
-        }
+
     }
 
+    @IBAction func add(_ sender: Any) {
+        avatarGroupView.add(image: UIImage(named: "avatar\(avatarGroupView.count % 8).jpg"))
+    }
+    
+    @IBAction func remove(_ sender: Any) {
+        
+    }
+    
 }
 

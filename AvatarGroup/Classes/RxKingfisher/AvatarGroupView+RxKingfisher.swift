@@ -28,7 +28,7 @@ import RxSwift
 
 extension Reactive where Base: AvatarGroupView {
     
-    var urls: Binder<[URL?]> {
+    public var urls: Binder<[URL?]> {
         return Binder(base) { view, urls in
             view.setAvatars(urls: urls)
         }

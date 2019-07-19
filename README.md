@@ -26,12 +26,10 @@ The following properties are supported in `AvatarGroupView`:
 - borderColor (`UIColor`)
 - borderWidth (`CGFloat`)
 
-Add and remove the avatar images with the following methods:
+Update avatar images with the following method:
 
 ```Swift
-func add(image: UIIamge?)
-func add(images: [UIIamge?])
-func remove(at index: Int)
+func setAvatars(images: [UIIamge?])
 ```
 
 #### Kingfisher Extension
@@ -42,11 +40,24 @@ AvatarGroup supports to load image url with Kingfisher.
 pod 'AvatarGroup/Kingfisher'
 ```
 
-Add and remove the avatar urls with the following methods.
+Update avatar urls with the following methods.
 
 ```Swift
-func add(url: URL?) 
-func add(urls: [URL?])
+func setAvatars(urls: [URL?])
+```
+
+#### RxSwift and Kingfisher Extension
+
+AvatarGroup supports to load image url with both RxSwift and Kingfisher.
+
+```ruby
+pod 'AvatarGroup/RxKingfisher'
+```
+
+Bind an observable object to the binder `urls` of the reactive extension.
+
+```Swift
+viewModel.avatarUrls.bind(to: avatarGroupView.rx.urls).disposed(by: disposeBag)
 ```
 
 ## Example

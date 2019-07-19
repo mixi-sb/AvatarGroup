@@ -28,7 +28,7 @@ AvatarGroup is a avatars' group view library which can arrange the circle avatar
   s.source           = { :git => 'https://github.com/xflagstudio/AvatarGroup.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
-
+  s.swift_version = '5.0'
   s.default_subspec = 'Core'
   s.dependency 'SnapKit', '~> 5'
   

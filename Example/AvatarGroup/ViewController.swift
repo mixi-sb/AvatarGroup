@@ -14,20 +14,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var avatarGroupView: AvatarGroupView!
     
+    private lazy var avatars = (0...4).map { url(with: $0) }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        avatarGroupView.add(images: (0...4).map { image(with: $0) })
-        avatarGroupView.add(urls: (0...4).map { url(with: $0) })
+        avatarGroupView.setAvatars(urls: avatars)
     }
 
     @IBAction func add(_ sender: Any) {
-//        avatarGroupView.add(image: image(with: avatarGroupView.count % 8))
-        avatarGroupView.add(url: url(with: avatarGroupView.count % 8))
+        avatars.append(url(with: avatarGroupView.count % 8))
+        avatarGroupView.setAvatars(urls: avatars)
     }
     
     @IBAction func remove(_ sender: Any) {
-        avatarGroupView.remove(at: Int.random(in: 0...(avatarGroupView.count - 1)))
+        avatars.remove(at: Int.random(in: 0...(avatars.count - 1)))
+        avatarGroupView.setAvatars(urls: avatars)
     }
     
     @IBAction func reverse(_ sender: Any) {
@@ -36,10 +38,6 @@ class ViewController: UIViewController {
     
     @IBAction func changeAlignment(_ sender: UISegmentedControl) {
         avatarGroupView.alignment = AvatarGroupView.Alignment.allCases[sender.selectedSegmentIndex]
-    }
-    
-    private func image(with index: Int) -> UIImage? {
-        return UIImage(named: "avatar\(index).jpg")
     }
     
     private func url(with index: Int) -> URL? {

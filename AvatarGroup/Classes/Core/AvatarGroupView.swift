@@ -84,6 +84,47 @@ open class AvatarGroupView: UIView {
         return CGAffineTransform(scaleX: reverse ? -1 : 1, y: 1)
     }
     
+    func removeAllAvatars() {
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        containerViews.removeAll()
+        imageViews.removeAll()
+    }
+    
+    func addImageView() -> UIImageView {
+        let imageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.cornerRadius = (bounds.height - 2 * borderWidth) / 2
+            imageView.layer.masksToBounds = true
+            return imageView
+        }()
+        
+        let containerView: UIView = {
+            let view = UIView()
+            view.backgroundColor = borderColor
+            view.addSubview(imageView)
+            view.layer.cornerRadius = bounds.height / 2
+            view.layer.masksToBounds = true
+            view.transform = cgAffineTransform
+            return view
+        }()
+        
+        imageViews.append(imageView)
+        containerViews.append(containerView)
+        stackView.addArrangedSubview(containerView)
+        
+        imageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalToSuperview().offset(-2 * borderWidth)
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.height.equalToSuperview()
+            $0.width.equalTo(containerView.snp.height)
+        }
+        return imageView
+    }
+    
     @IBInspectable
     public var spacing: CGFloat = 0 {
         didSet {
@@ -125,57 +166,13 @@ open class AvatarGroupView: UIView {
         return containerViews.count
     }
     
-    func addImageView() -> UIImageView {
-        let imageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = (bounds.height - 2 * borderWidth) / 2
-            imageView.layer.masksToBounds = true
-            return imageView
-        }()
+    public func setAvatars(images: [UIImage?]) {
+        removeAllAvatars()
         
-        let containerView: UIView = {
-            let view = UIView()
-            view.backgroundColor = borderColor
-            view.addSubview(imageView)
-            view.layer.cornerRadius = bounds.height / 2
-            view.layer.masksToBounds = true
-            view.transform = cgAffineTransform
-            return view
-        }()
-        
-        imageViews.append(imageView)
-        containerViews.append(containerView)
-        stackView.addArrangedSubview(containerView)
-        
-        imageView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.size.equalToSuperview().offset(-2 * borderWidth)
+        images.forEach {
+            let imageView = addImageView()
+            imageView.image = $0
         }
-        
-        containerView.snp.makeConstraints {
-            $0.height.equalToSuperview()
-            $0.width.equalTo(containerView.snp.height)
-        }
-        return imageView
-    }
-    
-    public func add(image: UIImage?) {
-        let imageView = addImageView()
-        imageView.image = image
-    }
-
-    public func add(images: [UIImage?]) {
-        images.forEach { add(image: $0) }
-    }
-    
-    public func remove(at index: Int) {
-        guard 0...index ~= index else {
-            return
-        }
-        stackView.removeArrangedSubview(containerViews[index])
-        containerViews.remove(at: index)
-        imageViews.remove(at: index)
     }
     
 }

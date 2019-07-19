@@ -27,13 +27,13 @@ import Kingfisher
 
 extension AvatarGroupView {
 
-    public func add(url: URL?) {
-        let imageView = addImageView()
-        imageView.kf.setImage(with: url)
-    }
-
-    public func add(urls: [URL?]) {
-        urls.forEach { add(url: $0) }
+    public func setAvatars(urls: [URL?]) {
+        removeAllAvatars()
+        
+        urls.forEach {
+            let imageView = addImageView()
+            imageView.kf.setImage(with: $0)
+        }
     }
 
 }

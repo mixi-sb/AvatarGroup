@@ -1,11 +1,11 @@
 PODS:
-  - AvatarGroup/Core (0.1):
+  - AvatarGroup/Core (0.1.1):
     - SnapKit (~> 5)
-  - AvatarGroup/Kingfisher (0.1):
+  - AvatarGroup/Kingfisher (0.1.1):
     - AvatarGroup/Core
     - Kingfisher (~> 5)
     - SnapKit (~> 5)
-  - Kingfisher (5.5.0)
+  - Kingfisher (5.7.0)
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
@@ -21,10 +21,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AvatarGroup: 1626f5a03ba9085f71b34d9d049d80d982e63f7a
-  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
+  AvatarGroup: c37607d6816f7e3cb1e35153e1f3e8d44e6aebd5
+  Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
 PODFILE CHECKSUM: 29471c227150d877de9eb2cf52d0cfe3dc47f75c
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.4

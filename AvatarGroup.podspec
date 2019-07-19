@@ -42,4 +42,9 @@ AvatarGroup is a avatars' group view library which can arrange the circle avatar
     kingfisher.source_files = 'AvatarGroup/Classes/Kingfisher/**/*'
   end
   
+  s.subspec 'RxKingfisher' do |rxkingfisher|
+    rxkingfisher.dependency 'AvatarGroup/Kingfisher'
+    rxkingfisher.dependency 'RxCocoa', '~> 5'
+    rxkingfisher.source_files = 'AvatarGroup/Classes/RxKingfisher/**/*'
+  end
 end

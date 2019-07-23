@@ -1,11 +1,11 @@
 PODS:
-  - AvatarGroup/Core (0.1.1):
+  - AvatarGroup/Core (0.2):
     - SnapKit (~> 5)
-  - AvatarGroup/Kingfisher (0.1.1):
+  - AvatarGroup/Kingfisher (0.2):
     - AvatarGroup/Core
     - Kingfisher (~> 5)
     - SnapKit (~> 5)
-  - AvatarGroup/RxKingfisher (0.1.1):
+  - AvatarGroup/RxKingfisher (0.2):
     - AvatarGroup/Kingfisher
     - RxCocoa (~> 5)
     - SnapKit (~> 5)
@@ -20,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - AvatarGroup/RxKingfisher (from `../`)
+  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -34,13 +35,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AvatarGroup: e8a6224098b2ef9dc74ea524739d6f978527514a
+  AvatarGroup: e0c4f1aafc11000bd75bcfb057bc88a31b5b4b1f
   Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 6c5102e143444f6b23a6b9426f4d0034b67e3e76
+PODFILE CHECKSUM: a55ab365440dc673ae60a62b1986f71ca1e6463f
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5

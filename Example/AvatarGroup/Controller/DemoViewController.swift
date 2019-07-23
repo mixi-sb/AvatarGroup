@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DemoViewController.swift
 //  AvatarGroup
 //
 //  Created by Meng Li on 05/23/2019.
@@ -10,7 +10,7 @@ import UIKit
 import AvatarGroup
 import SnapKit
 
-class ViewController: UIViewController {
+class DemoViewController: UIViewController {
     
     @IBOutlet weak var avatarGroupView: AvatarGroupView!
     

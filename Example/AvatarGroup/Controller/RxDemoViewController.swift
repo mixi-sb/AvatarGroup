@@ -16,7 +16,7 @@ class RxDemoViewController: UIViewController {
     private lazy var avatarGroupView: AvatarGroupView = {
         let avatarGroupView = AvatarGroupView()
         avatarGroupView.spacing = 10
-        avatarGroupView.alignment = .right
+        avatarGroupView.alignment = .center
         return avatarGroupView
     }()
     

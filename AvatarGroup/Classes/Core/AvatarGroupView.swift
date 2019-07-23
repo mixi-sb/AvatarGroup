@@ -91,6 +91,10 @@ open class AvatarGroupView: UIView {
     }
     
     func addImageView() -> UIImageView {
+        if bounds == .zero {
+            layoutIfNeeded()
+        }
+        
         let imageView: UIImageView = {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill

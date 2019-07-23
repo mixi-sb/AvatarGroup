@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AvatarGroup'
-  s.version          = '0.2'
+  s.version          = '0.2.1'
   s.summary          = 'An avatars\' group view for iOS'
 
 # This description is used to generate tags and improve search results.
@@ -41,10 +41,16 @@ AvatarGroup is a avatars' group view library which can arrange the circle avatar
     kingfisher.dependency 'Kingfisher', '~> 5'
     kingfisher.source_files = 'AvatarGroup/Classes/Kingfisher/**/*'
   end
-  
+ 
+  s.subspec 'Rx' do |rx|
+    rx.dependency 'AvatarGroup/Core'
+    rx.dependency 'RxCocoa', '~> 5'
+    rx.source_files = 'AvatarGroup/Classes/Rx/**/*'
+  end
+
   s.subspec 'RxKingfisher' do |rxkingfisher|
     rxkingfisher.dependency 'AvatarGroup/Kingfisher'
-    rxkingfisher.dependency 'RxCocoa', '~> 5'
+    rxkingfisher.dependency 'AvatarGroup/Rx'
     rxkingfisher.source_files = 'AvatarGroup/Classes/RxKingfisher/**/*'
   end
 end

@@ -34,6 +34,7 @@ extension AvatarGroupView {
             let imageView = addImageView()
             imageView.kf.setImage(with: $0)
         }
+        setBorder()
     }
 
 }

@@ -1,15 +1,15 @@
 PODS:
-  - AvatarGroup/Core (0.2.1):
+  - AvatarGroup/Core (0.2.2):
     - SnapKit (~> 5)
-  - AvatarGroup/Kingfisher (0.2.1):
+  - AvatarGroup/Kingfisher (0.2.2):
     - AvatarGroup/Core
     - Kingfisher (~> 5)
     - SnapKit (~> 5)
-  - AvatarGroup/Rx (0.2.1):
+  - AvatarGroup/Rx (0.2.2):
     - AvatarGroup/Core
     - RxCocoa (~> 5)
     - SnapKit (~> 5)
-  - AvatarGroup/RxKingfisher (0.2.1):
+  - AvatarGroup/RxKingfisher (0.2.2):
     - AvatarGroup/Kingfisher
     - AvatarGroup/Rx
     - SnapKit (~> 5)
@@ -39,7 +39,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AvatarGroup: 40996ddcf7031ecdb6e9cedac6cdfc95ef6faf7c
+  AvatarGroup: 48445b1a1f3d985fbccf00b5f140fb5e31fe92b2
   Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18

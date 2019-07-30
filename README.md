@@ -1,9 +1,13 @@
-# AvatarGroup
-
-[![Build Status](https://app.bitrise.io/app/5bc2d92c7384df62/status.svg?token=P8J63EKTrlTUBzAw_lQneg)](https://app.bitrise.io/app/5bc2d92c7384df62)
-[![Version](https://img.shields.io/cocoapods/v/AvatarGroup.svg?style=flat)](https://cocoapods.org/pods/AvatarGroup)
-[![License](https://img.shields.io/cocoapods/l/AvatarGroup.svg?style=flat)](https://cocoapods.org/pods/AvatarGroup)
-[![Platform](https://img.shields.io/cocoapods/p/AvatarGroup.svg?style=flat)](https://cocoapods.org/pods/AvatarGroup)
+<p align="center">
+<img src="https://raw.githubusercontent.com/xflagstudio/AvatarGroup/master/Example/AvatarGroup/Images.xcassets/AppIcon.appiconset/icon.png" alt="RxController" title="RxController" width="300"/>
+</p>
+<h1 align="center">AvatarGroup</h1>
+<p align="center">
+<a href="https://app.bitrise.io/app/5bc2d92c7384df62"><img src="https://app.bitrise.io/app/5bc2d92c7384df62/status.svg?token=P8J63EKTrlTUBzAw_lQneg"></a>
+<a href="https://https://cocoapods.org/pods/AvatarGroup"><img src="https://img.shields.io/cocoapods/v/AvatarGroup.svg?style=flat"></a>
+<a href="https://https://cocoapods.org/pods/AvatarGroup"><img src="https://img.shields.io/cocoapods/l/AvatarGroup.svg?style=flat"></a>
+<a href="https://https://cocoapods.org/pods/AvatarGroup"><img src="https://img.shields.io/cocoapods/p/AvatarGroup.svg?style=flat"></a>
+</p>
 
 AvatarGroup is a avatars' group view library which can arrange the circle avatars in a stack view.
 

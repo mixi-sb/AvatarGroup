@@ -105,11 +105,9 @@ open class AvatarGroupView: UIView {
         
         let containerView: UIView = {
             let view = UIView()
-            view.backgroundColor = borderColor
             view.addSubview(imageView)
-            view.layer.cornerRadius = bounds.height / 2
-            view.layer.masksToBounds = true
             view.transform = cgAffineTransform
+            view.layer.masksToBounds = true
             return view
         }()
         
@@ -127,6 +125,49 @@ open class AvatarGroupView: UIView {
             $0.width.equalTo(containerView.snp.height)
         }
         return imageView
+    }
+    
+    func setBorder() {
+        if borderColor == .clear {
+            containerViews.dropLast().forEach {
+                $0.layer.mask = {
+                    let innerPath = UIBezierPath()
+                    innerPath.addArc(
+                        withCenter: CGPoint(x: bounds.height / 2, y: bounds.height / 2),
+                        radius: (bounds.height - 2 * borderWidth) / 2,
+                        startAngle: -.pi,
+                        endAngle: .pi,
+                        clockwise: true
+                    )
+                    
+                    let outerPath = UIBezierPath()
+                    outerPath.addArc(
+                        withCenter: CGPoint(x: -bounds.height / 2 - spacing , y: bounds.height / 2),
+                        radius: bounds.height / 2,
+                        startAngle: -.pi,
+                        endAngle: .pi,
+                        clockwise: true
+                    )
+                    
+                    let layer = CAShapeLayer()
+                    layer.path = {
+                        let path = UIBezierPath()
+                        path.append(innerPath)
+                        path.append(outerPath)
+                        path.usesEvenOddFillRule = true
+                        return path.cgPath
+                    }()
+                    layer.fillRule = .evenOdd
+                    return layer
+                }()
+
+            }
+        } else {
+            containerViews.forEach {
+                $0.backgroundColor = borderColor
+                $0.layer.cornerRadius = bounds.height / 2
+            }
+        }
     }
     
     @IBInspectable
@@ -177,6 +218,7 @@ open class AvatarGroupView: UIView {
             let imageView = addImageView()
             imageView.image = $0
         }
+        setBorder()
     }
     
 }
